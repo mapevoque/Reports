@@ -6,12 +6,31 @@ exports.config = {
   specs: ['test.js'],
   waitForAngularEnabled: false,
   framework: 'jasmine2',
-  onPrepare: () => {
+   onPrepare: () => {
     let jasmineReporters = require('jasmine-reporters');
     jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
         consolidateAll: true,
-        savePath: 'testresults',
+        savePath: './',
         filePrefix: 'xmloutput'
     }));
-}
+},     
+onComplete: function() {
+     var browserName, browserVersion;
+     var capsPromise = browser.getCapabilities();
+ 
+     capsPromise.then(function (caps) {
+
+ 
+        var HTMLReport = require('protractor-html-reporter');
+ 
+        testConfig = {
+            reportTitle: 'Test html Report',
+            outputPath: './',
+            screenshotPath: './screenshots',
+            modifiedSuiteName: false,
+            screenshotsOnlyOnFailure: true
+        };
+        new HTMLReport().from('xmloutput.xml', testConfig);
+    });
+ }
 }

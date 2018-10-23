@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="PullTest1 POST" timestamp="2018-10-23T11:29:02" hostname="localhost" time="7.574" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="PullTest1 POST" name="Яндекс - перевод" time="7.573">
+  </testcase>
+ </testsuite>
+</testsuites>
